@@ -5,7 +5,7 @@ import {
   StyledName,
   StyledFormButton,
 } from './ContactForm.styled';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 
 export const ContactForm = () => {

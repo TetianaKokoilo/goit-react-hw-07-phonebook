@@ -7,8 +7,20 @@ import {
   StyledContainer,
   StyledContactsTitle,
 } from './App.styled';
+import { selectError, selectIsLoading } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
 
 export function App() {
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+    dispatch(fetchContacts());
+    }, [dispatch]);
+  
   return (
     <StyledContainer>
       <StyledTitle>Phonebook</StyledTitle>
@@ -16,6 +28,7 @@ export function App() {
 
       <StyledContactsTitle>Contacts</StyledContactsTitle>
       <Filter />
+      {isLoading && !error && <b>Request in progress...</b>}
       <ContactList />
     </StyledContainer>
   );
