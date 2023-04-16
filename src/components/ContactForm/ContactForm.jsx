@@ -14,7 +14,12 @@ export const ContactForm = () => {
     e.preventDefault();
     const form = e.target;
     const [name, number] = form.elements;
-    dispatch(addContact(name.value, number.value));
+
+    const newContact = {
+      name: name.value,
+      phone: number.value,
+    };
+    dispatch(addContact(newContact));
     form.reset();
   };
 
