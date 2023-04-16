@@ -1,4 +1,3 @@
-
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -17,10 +16,10 @@ export function App() {
   const error = useSelector(selectError);
   const dispatch = useDispatch();
 
-    useEffect(() => {
+  useEffect(() => {
     dispatch(fetchContacts());
-    }, [dispatch]);
-  
+  }, [dispatch]);
+
   return (
     <StyledContainer>
       <StyledTitle>Phonebook</StyledTitle>
